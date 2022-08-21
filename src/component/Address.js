@@ -15,9 +15,11 @@ const Address = () => {
     let value = event.target.value;
     let myData = Country.getAllCountries();
     console.log(myData);
-    let countryCode = myData.filter((elm) => {
+    let countryCode =myData.filter((elm) => {
       if (elm.name === value) {
-        return elm.isoCode;
+         return elm.isoCode;
+      }else{
+             return "IN"
       }
     });
     let code = countryCode[0].isoCode;
@@ -30,7 +32,7 @@ const Address = () => {
       <div>
         <label htmlFor="address">Address</label>
         <input
-          type="number"
+          type="text"
           id="address"
           nammxxxyy="address"
           autoComplete="false"
@@ -39,6 +41,7 @@ const Address = () => {
 
         <label htmlFor="state">State</label>
         <select name="state" id="state" class="form-control">
+        <option selected>select the state</option>
           {State.getStatesOfCountry(data).map((elm) => (
             <option value="Andaman and Nicobar Islands">{elm.name}</option>
           ))}

@@ -2,16 +2,21 @@
 
 import React from "react";
 import Address from "./Address";
+import OtherDetails from "./OtherDetails";
+import "../form.css"
 
 const Registration = () => {
  
   return (
-    <div>
-      <div>
+    <div className="main_container">
+   
         <form>
+        <div>
+          <h6>Person Details</h6>
           <div>
             <label htmlFor="name">Name</label>
             <input
+            className="input_1"
               type="name"
               id="name"
               nammxxxyy="name"
@@ -21,6 +26,7 @@ const Registration = () => {
           
             <label htmlFor="date">Date of Birth or age</label>
             <input
+            className="input_1"
               type="date"
               id="date"
               nammxxxyy="dob"
@@ -36,6 +42,7 @@ const Registration = () => {
             </select>
           </div>
           <div>
+          <div>
             <label htmlFor="mobile">Mobile</label>
             <input
               type="number"
@@ -44,7 +51,8 @@ const Registration = () => {
               autoComplete="false"
               value=""
             />
-         
+          </div>
+         <div>
             <label id="govt-id">Govt issue Id</label>
             <select>
               <option selected> Select Id</option>
@@ -54,17 +62,20 @@ const Registration = () => {
               <option value="pan">PAN</option>
             </select>
             <input
+            className="input_1"
               type="text"
               nammxxxyy="id-value"
               autoComplete="false"
               value=""
             />
+          </div>
+       </div>
        </div>
 
           <h6>Contact details</h6>
           <div>
             <label htmlFor="guardian">Guardian Detail</label>
-            <select>
+            <select className="input_1" name="guardian" id="guardian">
               <option selected> Relation of Guardian</option>
               <option value="mother">Mother</option>
               <option value="Father">Father</option>
@@ -74,6 +85,7 @@ const Registration = () => {
       
             <label htmlFor="email">Email</label>
             <input
+            className="input_2"
               type="email"
               id="email"
               nammxxxyy="email"
@@ -94,9 +106,10 @@ const Registration = () => {
             </div>
            
             <h6>Other details</h6>
+            <OtherDetails/>
           </div>
         </form>
-      </div>
+      
     </div>
   );
 };
