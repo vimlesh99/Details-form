@@ -22,5 +22,38 @@
     background: rgb(210, 207, 207);
     display: flex;
     flex-direction: column;
-    
+
+}
+.person_details{
+    width: 100vw;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+/* .person_name_part1{
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+
+}
+
+.person_name_part2{
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+
+} */
+.span_margin{
+    height: 1.2rem;
+    width: 20rem;
+    margin-left: 20px;
+    margin-right: 100px;
+    text-decoration: ;
 }
