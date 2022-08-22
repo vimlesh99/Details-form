@@ -7,11 +7,11 @@ import "../form.css";
 
 const Registration = () => {
   return (
+    <form>
     <div className="main_container">
-      <form>
         <div className="person_details">
-          <h3 style={{textDecoration:"underline"}}>Person Details</h3>
-          <div className="person_name_part1">
+          <h3 style={{ textDecoration: "underline" }}>Person Details</h3>
+          <div >
             <span className="span_margin">
               <label htmlFor="name">Name</label>
               <input
@@ -26,7 +26,7 @@ const Registration = () => {
             <span className="span_margin">
               <label htmlFor="date">Date of Birth or age</label>
               <input
-                className="input_1"
+                className="input_3"
                 type="date"
                 id="date"
                 nammxxxyy="dob"
@@ -36,7 +36,7 @@ const Registration = () => {
             </span>
             <span className="span_margin">
               <label htmlFor="gender">sex</label>
-              <select id="gender">
+              <select className="input_3" id="gender">
                 <option selected> Select Gender</option>
                 <option value="Other">Other</option>
                 <option value="male">male</option>
@@ -44,7 +44,7 @@ const Registration = () => {
               </select>
             </span>
           </div>
-          <div className="person_name_part2">
+          <div >
             <span className="span_margin">
               <label htmlFor="mobile">Mobile</label>
               <input
@@ -75,44 +75,61 @@ const Registration = () => {
           </div>
         </div>
 
-        <h3 style={{textDecoration:"underline"}}>Contact details</h3>
-        <div>
-          <label htmlFor="guardian">Guardian Detail</label>
-          <select className="input_1" name="guardian" id="guardian">
-            <option selected> Relation of Guardian</option>
-            <option value="mother">Mother</option>
-            <option value="Father">Father</option>
-            <option value="brother">Brother</option>
-          </select>
-          <input name="guardian-name" type="text" value="" />
+        <div >
+          
+            <div  className="person_details">
+        <h3 style={{ textDecoration: "underline" }}>Contact details</h3>
+            <div>
+              <span className="span_margin"> <label htmlFor="guardian">Guardian Detail</label>
+              <select className="input_3" name="guardian" id="guardian">
+                <option selected> Guardian</option>
+                <option value="mother">Mother</option>
+                <option value="Father">Father</option>
+                <option value="brother">Brother</option>
+              </select>
+              <input
+                className="input_4"
+                name="guardian-name"
+                placeholder="Relation of Guardian"
+                type="text"
+                value=""
+              />
+              </span>
 
-          <label htmlFor="email">Email</label>
-          <input
-            className="input_1 "
-            type="email"
-            id="email"
-            nammxxxyy="email"
-            autoComplete="false"
-            value=""
-          />
+              <span className="span_margin"> <label htmlFor="email">Email</label>
+              <input
+                className="input_4"
+                type="email"
+                id="email"
+                nammxxxyy="email"
+                autoComplete="false"
+                value=""
+              />
+              </span>
 
-          <label htmlFor="emargency">Emargency Contact Number</label>
-          <input
-            type="number"
-            id="emargency"
-            nammxxxyy="emargency_contact_number"
-            autoComplete="false"
-            value=""
-          />
+              <span> <label htmlFor="emargency">Emargency Contact Number</label>
+              <input
+                className="input_3"
+                type="number"
+                id="emargency"
+                nammxxxyy="emargency_contact_number"
+                autoComplete="false"
+                value=""
+              />
+              </span>
+              </div>
+            </div>
+         
+
           <div>
             <Address />
           </div>
-
-          <h3 style={{textDecoration:"underline"}}>Other details</h3>
+<div>
           <OtherDetails />
+          </div>
         </div>
-      </form>
     </div>
+      </form>
   );
 };
 
