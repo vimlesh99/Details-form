@@ -27,19 +27,20 @@ const Address = () => {
   };
 
   return (
-    <div >
+    <>
       <div className="person_details">
       <h3 style={{ textDecoration: "underline" }}>Address</h3>
-        <div >
+        <div  className="style_div">
           <span className="span_margin">
             <label htmlFor="address">Address</label>
             <input
-              className="input_2"
+              className="input_1"
               type="text"
               id="address"
-              nammxxxyy="address"
+              name="address"
               autoComplete="false"
               value=""
+              placeholder="enter permanent address"
             />
           </span>
           <span className="span_margin">
@@ -64,7 +65,7 @@ const Address = () => {
             </select>
           </span>
         </div>
-        <div>
+        <div className="style_div">
           <span className="span_margin">
             <label htmlFor="country">Country</label>
             <select name="country" id="country" onChange={getCountryCode}>
@@ -82,7 +83,7 @@ const Address = () => {
               })}
             </select>
           </span>
-          <span>
+          <span className="span_margin">
             <label htmlFor="pincode">Pincode</label>
             <input
               type="number"
@@ -95,7 +96,7 @@ const Address = () => {
           </span>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -7,7 +7,7 @@ const OtherDetails = () => {
   return (
     <div className="person_details">
     <h3 style={{ textDecoration: "underline" }}>Other details</h3>
-      <div>
+      <div className="style_div">
        <span className="span_margin">
           <label htmlFor="occupation">Occupation</label>
           <input id="occupation" name="occupation" value="" />
@@ -36,7 +36,7 @@ const OtherDetails = () => {
         </span>
       </div>
 
-      <div>
+      <div className="style_div">
        <span className="span_margin">
           <label id="blood_group">Blood Group</label>
           <select id="blood_group" name="blood_group">

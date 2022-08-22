@@ -18,9 +18,10 @@ const Registration = () => {
                 className="input_1"
                 type="name"
                 id="name"
-                nammxxxyy="name"
+                name="name"
                 autoComplete="false"
                 value=""
+                placeholder="enter name"
               />
             </span>
             <span className="span_margin">
@@ -29,9 +30,10 @@ const Registration = () => {
                 className="input_3"
                 type="date"
                 id="date"
-                nammxxxyy="dob"
+                name="dob"
                 autoComplete="false"
                 value=""
+                
               />
             </span>
             <span className="span_margin">
@@ -50,9 +52,10 @@ const Registration = () => {
               <input
                 type="number"
                 id="mobile"
-                nammxxxyy="mobile"
+                name="mobile"
                 autoComplete="false"
                 value=""
+                placeholder=" contact number"
               />
             </span>
             <span className="span_margin">
@@ -67,9 +70,10 @@ const Registration = () => {
               <input
                 className="input_1"
                 type="text"
-                nammxxxyy="id-value"
+                name="id-value"
                 autoComplete="false"
                 value=""
+                placeholder=" type of Id"
               />
             </span>
           </div>
@@ -90,7 +94,7 @@ const Registration = () => {
               <input
                 className="input_4"
                 name="guardian-name"
-                placeholder="Relation of Guardian"
+                placeholder="enter guardian name"
                 type="text"
                 value=""
               />
@@ -101,9 +105,10 @@ const Registration = () => {
                 className="input_4"
                 type="email"
                 id="email"
-                nammxxxyy="email"
+                name="email"
                 autoComplete="false"
                 value=""
+                placeholder="abc@gmail.com"
               />
               </span>
 
@@ -112,9 +117,10 @@ const Registration = () => {
                 className="input_3"
                 type="number"
                 id="emargency"
-                nammxxxyy="emargency_contact_number"
+                name="emargency_contact_number"
                 autoComplete="false"
                 value=""
+                placeholder="emergency number"
               />
               </span>
               </div>
