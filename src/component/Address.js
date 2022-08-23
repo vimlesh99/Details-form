@@ -4,7 +4,8 @@ import { Country, State, City } from "country-state-city/lib/cjs";
 import { useState } from "react";
 import "../form.css";
 
-const Address = () => {
+const Address = (props ) => {
+  const {pass,passChange,passValue} =props;
   console.log(City.getCitiesOfState("IN", "DL"));
 
   const [data, setData] = useState("IN");
@@ -39,22 +40,25 @@ const Address = () => {
               id="address"
               name="address"
               autoComplete="false"
-              value=""
+              value={passValue.address}
+              onBlur={pass}
+              onChange={passChange}
               placeholder="enter permanent address"
             />
           </span>
           <span className="span_margin">
             <label htmlFor="state">State</label>
-            <select name="state" id="state" className="input_1">
+            <select name="state"  
+              onChange={passChange} id="state" className="input_1">
               <option selected>select the state</option>
               {State.getStatesOfCountry(data).map((elm) => (
-                <option value="Andaman and Nicobar Islands">{elm.name}</option>
+                <option value={elm.name}>{elm.name}</option>
               ))}
             </select>
           </span>
           <span className="span_margin">
             <label htmlFor="city">City</label>
-            <select name="city" id="city">
+            <select name="city"  onChange={passChange} id="city">
               {City.getCitiesOfState("IN", "DL").map((elm) => {
                 return (
                   <option key={elm.isoCode} value={elm.name} id={elm.isoCode}>
@@ -68,7 +72,7 @@ const Address = () => {
         <div className="style_div">
           <span className="span_margin">
             <label htmlFor="country">Country</label>
-            <select name="country" id="country" onChange={getCountryCode}>
+            <select name="country"  id="country" onChange={getCountryCode}>
               <option value="india" selected>
                 India
               </option>
@@ -91,7 +95,9 @@ const Address = () => {
               name="pincode"
               placeholder="enter the pincode"
               autoComplete="false"
-              value=""
+              value={passValue.pincode}
+              onBlur={pass}
+              onChange={passChange}
             />
           </span>
         </div>

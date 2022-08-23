@@ -1,13 +1,50 @@
 /** @format */
 
+
 import React from "react";
 import Address from "./Address";
 import OtherDetails from "./OtherDetails";
 import "../form.css";
+import { useFormik } from "formik";
+
+const initialValues = {
+  name:"",
+  dob:"",
+  gender:"",
+  mobile:"",
+  govtId:"",
+  idValue:"",
+  guardian:"",
+  guardianName:"",
+  email:"",
+  emargencyContactNumber:"",
+  address:"",
+  state:"",
+  city:"",
+  country:"",
+  pincode:"",
+  occupation:"",
+  maritalStatus:"",
+  bloodGroup:"",
+  nationality:"",
+  
+
+}
+
+
 
 const Registration = () => {
+
+ const {errors ,handleBlur,handleChange,values,handleSubmit}= useFormik({
+    initialValues:initialValues,
+    onSubmit : (values)=>{
+      console.log(values);
+    }
+  })
+
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
     <div className="main_container">
         <div className="person_details">
           <h3 style={{ textDecoration: "underline" }}>Person Details</h3>
@@ -20,8 +57,10 @@ const Registration = () => {
                 id="name"
                 name="name"
                 autoComplete="false"
-                value=""
+                value={values.name}
                 placeholder="enter name"
+                onChange={handleChange}
+                onBlur={handleBlur}
               />
             </span>
             <span className="span_margin">
@@ -32,13 +71,15 @@ const Registration = () => {
                 id="date"
                 name="dob"
                 autoComplete="false"
-                value=""
+                value={values.dob}
+                onChange={handleChange}
+                onBlur={handleBlur}
                 
               />
             </span>
             <span className="span_margin">
               <label htmlFor="gender">sex</label>
-              <select className="input_3" id="gender">
+              <select name="gender" className="input_3" id="gender" onChange={handleChange}>
                 <option selected> Select Gender</option>
                 <option value="Other">Other</option>
                 <option value="male">male</option>
@@ -54,13 +95,15 @@ const Registration = () => {
                 id="mobile"
                 name="mobile"
                 autoComplete="false"
-                value=""
                 placeholder=" contact number"
+                value={values.mobile}
+                onChange={handleChange}
+                onBlur={handleBlur}
               />
             </span>
             <span className="span_margin">
               <label id="govt-id">Govt issue Id</label>
-              <select>
+              <select  name="govtId" id="govt-id"  onChange={handleChange}>
                 <option selected> Select Id</option>
                 <option value="Other">Other</option>
                 <option value="Adhar">Adhar</option>
@@ -70,9 +113,11 @@ const Registration = () => {
               <input
                 className="input_1"
                 type="text"
-                name="id-value"
+                name="idValue"
                 autoComplete="false"
-                value=""
+                value={values.idValue}
+                onChange={handleChange}
+                onBlur={handleBlur}
                 placeholder=" type of Id"
               />
             </span>
@@ -84,8 +129,9 @@ const Registration = () => {
             <div  className="person_details">
         <h3 style={{ textDecoration: "underline" }}>Contact details</h3>
             <div>
-              <span className="span_margin"> <label htmlFor="guardian">Guardian Detail</label>
-              <select className="input_3" name="guardian" id="guardian">
+              <span className="span_margin">
+               <label htmlFor="guardian">Guardian Detail</label>
+              <select className="input_3" name="guardian" id="guardian" onChange={handleChange}>
                 <option selected> Guardian</option>
                 <option value="mother">Mother</option>
                 <option value="Father">Father</option>
@@ -93,10 +139,12 @@ const Registration = () => {
               </select>
               <input
                 className="input_4"
-                name="guardian-name"
+                name="guardianName"
                 placeholder="enter guardian name"
                 type="text"
-                value=""
+                value={values.guardianName}
+                onChange={handleChange}
+                onBlur={handleBlur}
               />
               </span>
 
@@ -107,7 +155,9 @@ const Registration = () => {
                 id="email"
                 name="email"
                 autoComplete="false"
-                value=""
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
                 placeholder="abc@gmail.com"
               />
               </span>
@@ -117,9 +167,11 @@ const Registration = () => {
                 className="input_3"
                 type="number"
                 id="emargency"
-                name="emargency_contact_number"
+                name="emargencyContactNumber"
                 autoComplete="false"
-                value=""
+                value={values.emargencyContactNumber}
+                onChange={handleChange}
+                onBlur={handleBlur}
                 placeholder="emergency number"
               />
               </span>
@@ -128,12 +180,13 @@ const Registration = () => {
          
 
           <div>
-            <Address />
+            <Address  pass={handleBlur } passChange={handleChange} passValue={values} />
           </div>
 <div>
-          <OtherDetails />
+          <OtherDetails pass={handleBlur } passChange={handleChange} passValue={values} />
           </div>
         </div>
+        <button type="submit" style={{height:"20px" , width:"50px" , color:"blue"}}>Submit</button>
     </div>
       </form>
   );
