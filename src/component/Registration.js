@@ -6,6 +6,7 @@ import Address from "./Address";
 import OtherDetails from "./OtherDetails";
 import "../form.css";
 import { useFormik } from "formik";
+import { signUpSchema} from "../schemas/Schema.js"
 
 const initialValues = {
   name:"",
@@ -27,7 +28,8 @@ const initialValues = {
   maritalStatus:"",
   bloodGroup:"",
   nationality:"",
-  
+  religion:""
+
 
 }
 
@@ -35,13 +37,14 @@ const initialValues = {
 
 const Registration = () => {
 
- const {errors ,handleBlur,handleChange,values,handleSubmit}= useFormik({
+ const {errors ,handleBlur,handleChange,touched,values,handleSubmit}= useFormik({
     initialValues:initialValues,
+    validationSchema:signUpSchema,
     onSubmit : (values)=>{
       console.log(values);
     }
   })
-
+   
 
   return (
     <form onSubmit={handleSubmit}>
@@ -50,6 +53,7 @@ const Registration = () => {
           <h3 style={{ textDecoration: "underline" }}>Person Details</h3>
           <div >
             <span className="span_margin">
+          { errors.name&& touched.name?<p className="error">{errors.name}</p>:null}
               <label htmlFor="name">Name</label>
               <input
                 className="input_1"
@@ -62,8 +66,10 @@ const Registration = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
+             
             </span>
             <span className="span_margin">
+            { errors.dob&& touched.dob?<p className="error">{errors.dob}</p>:null}
               <label htmlFor="date">Date of Birth or age</label>
               <input
                 className="input_3"
@@ -78,6 +84,7 @@ const Registration = () => {
               />
             </span>
             <span className="span_margin">
+            { errors.gender&& touched.gender?<p className="error">{errors.gender}</p>:null}
               <label htmlFor="gender">sex</label>
               <select name="gender" className="input_3" id="gender" onChange={handleChange}>
                 <option selected> Select Gender</option>
@@ -89,6 +96,7 @@ const Registration = () => {
           </div>
           <div >
             <span className="span_margin">
+            { errors.mobile&& touched.mobile?<p className="error">{errors.mobile}</p>:null}
               <label htmlFor="mobile">Mobile</label>
               <input
                 type="number"
@@ -102,6 +110,7 @@ const Registration = () => {
               />
             </span>
             <span className="span_margin">
+            { errors.govtId && touched.govtId?<p className="error">{errors.govtId }</p>:null}
               <label id="govt-id">Govt issue Id</label>
               <select  name="govtId" id="govt-id"  onChange={handleChange}>
                 <option selected> Select Id</option>
@@ -110,6 +119,7 @@ const Registration = () => {
                 <option value="Driving Licence">Driving Licence</option>
                 <option value="pan">PAN</option>
               </select>
+              {/* {<p>{errors.idValue}</p>} */}
               <input
                 className="input_1"
                 type="text"
@@ -130,13 +140,15 @@ const Registration = () => {
         <h3 style={{ textDecoration: "underline" }}>Contact details</h3>
             <div>
               <span className="span_margin">
-               <label htmlFor="guardian">Guardian Detail</label>
+              { errors.guardian&& touched.guardian?<p className="error">{errors.guardian}</p>:null}
+               {/* <label htmlFor="guardian">Guardian Detail</label> */}
               <select className="input_3" name="guardian" id="guardian" onChange={handleChange}>
-                <option selected> Guardian</option>
+                <option > Guardian</option>
                 <option value="mother">Mother</option>
                 <option value="Father">Father</option>
                 <option value="brother">Brother</option>
               </select>
+              { errors.guardianName && touched.guardianName ?<p className="error">{errors.guardianName }</p>:null}
               <input
                 className="input_4"
                 name="guardianName"
@@ -149,6 +161,7 @@ const Registration = () => {
               </span>
 
               <span className="span_margin"> <label htmlFor="email">Email</label>
+              { errors.email && touched.email ?<p className="error">{errors.email }</p>:null}
               <input
                 className="input_4"
                 type="email"
@@ -162,7 +175,9 @@ const Registration = () => {
               />
               </span>
 
-              <span> <label htmlFor="emargency">Emargency Contact Number</label>
+              <span>
+              { errors.emargencyContactNumber && touched.emargencyContactNumber ?<p className="error">{errors.emargencyContactNumber }</p>:null}
+               <label htmlFor="emargency">Emargency Contact Number</label>
               <input
                 className="input_3"
                 type="number"
@@ -180,13 +195,17 @@ const Registration = () => {
          
 
           <div>
-            <Address  pass={handleBlur } passChange={handleChange} passValue={values} />
+            <Address  pass={handleBlur } passChange={handleChange} passValue={values} err={errors} passTouch={touched} />
           </div>
 <div>
-          <OtherDetails pass={handleBlur } passChange={handleChange} passValue={values} />
+          <OtherDetails pass={handleBlur } passChange={handleChange} passValue={values} err={errors} passTouch={touched} />
           </div>
         </div>
-        <button type="submit" style={{height:"20px" , width:"50px" , color:"blue"}}>Submit</button>
+        <div>
+
+        <button type="submit" className="person_details" style={{height:"30px" , width:"80px" , color:"blue" ,backgroundColor:"#d3cccc", marginLeft:"1000px" ,padding:"20px"}}>Submit</button>
+        </div>
+
     </div>
       </form>
   );

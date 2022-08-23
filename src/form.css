@@ -28,11 +28,12 @@
     margin: 10px;
 }
 .main_container{
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     background: rgb(210, 207, 207);
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     padding: 10px;
 
 }
@@ -66,4 +67,11 @@
     flex-direction: row;
     align-items: center;
 
+}
+
+
+.error{
+    color: red;
+    font-size: .8rem;
+    
 }

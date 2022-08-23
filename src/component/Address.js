@@ -5,16 +5,22 @@ import { useState } from "react";
 import "../form.css";
 
 const Address = (props ) => {
-  const {pass,passChange,passValue} =props;
+  const {pass,passChange,passValue ,err , passTouch} =props;
   console.log(City.getCitiesOfState("IN", "DL"));
 
   const [data, setData] = useState("IN");
   console.log(data);
 
+
+
+
+
+
   const getCountryCode = (event) => {
     console.log(event.target.value);
     let value = event.target.value;
     let myData = Country.getAllCountries();
+        passChange();
     console.log(myData);
     let countryCode = myData.filter((elm) => {
       if (elm.name === value) {
@@ -27,12 +33,16 @@ const Address = (props ) => {
     setData(code);
   };
 
+
+
+
   return (
     <>
       <div className="person_details">
       <h3 style={{ textDecoration: "underline" }}>Address</h3>
         <div  className="style_div">
           <span className="span_margin">
+       { err.address && passTouch.address ? <p className="error">{err.address}</p>:null}
             <label htmlFor="address">Address</label>
             <input
               className="input_1"
@@ -47,6 +57,7 @@ const Address = (props ) => {
             />
           </span>
           <span className="span_margin">
+          { err.State && passTouch.State ? <p className="error">{err.State}</p>:null}
             <label htmlFor="state">State</label>
             <select name="state"  
               onChange={passChange} id="state" className="input_1">
@@ -57,8 +68,10 @@ const Address = (props ) => {
             </select>
           </span>
           <span className="span_margin">
+          { err.City && passTouch.City ? <p className="error">{err.City}</p>:null}
             <label htmlFor="city">City</label>
             <select name="city"  onChange={passChange} id="city">
+            <option selected>select the city</option>
               {City.getCitiesOfState("IN", "DL").map((elm) => {
                 return (
                   <option key={elm.isoCode} value={elm.name} id={elm.isoCode}>
@@ -71,12 +84,14 @@ const Address = (props ) => {
         </div>
         <div className="style_div">
           <span className="span_margin">
+          { err.Country && passTouch.address ? <p className="error">{err.address}</p>:null}
             <label htmlFor="country">Country</label>
-            <select name="country"  id="country" onChange={getCountryCode}>
+            <select name="country"  id="country" onChange={getCountryCode} >
+            
               <option value="india" selected>
                 India
               </option>
-              {Country.getAllCountries().map((elm) => {
+              {Country.getAllCountries(data).map((elm) => {
                 return (
                   <>
                     <option key={elm.isoCode} value={elm.name} id={elm.isoCode}>
@@ -88,6 +103,7 @@ const Address = (props ) => {
             </select>
           </span>
           <span className="span_margin">
+          { err.pincode && passTouch.pincode ? <p className="error">{err.pincode}</p>:null}
             <label htmlFor="pincode">Pincode</label>
             <input
               type="number"
