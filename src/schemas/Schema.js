@@ -14,7 +14,7 @@ export const signUpSchema = Yup.object({
     address:Yup.string().min(3).required("enter address"),
     state:Yup.string().required("select state"),
     city:Yup.string().required("select city"),
-    country:Yup.string().required("select country"),
+    // country:Yup.string().required("select country"),
     pincode:Yup.string().required("enter pincode"),
     occupation:Yup.string().required("enter occupation"),
     maritalStatus:Yup.string().required("select marital"),

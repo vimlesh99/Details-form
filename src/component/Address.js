@@ -17,10 +17,10 @@ const Address = (props ) => {
 
 
   const getCountryCode = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     let value = event.target.value;
     let myData = Country.getAllCountries();
-        passChange();
+        passChange(event);
     console.log(myData);
     let countryCode = myData.filter((elm) => {
       if (elm.name === value) {
@@ -39,9 +39,9 @@ const Address = (props ) => {
   return (
     <>
       <div className="person_details">
-      <h3 style={{ textDecoration: "underline" }}>Address</h3>
+      <h5 style={{ textDecoration: "underline" }}>Address</h5>
         <div  className="style_div">
-          <span className="span_margin">
+          <span className=" col-sm-4 span_margin">
        { err.address && passTouch.address ? <p className="error">{err.address}</p>:null}
             <label htmlFor="address">Address</label>
             <input
@@ -56,7 +56,7 @@ const Address = (props ) => {
               placeholder="enter permanent address"
             />
           </span>
-          <span className="span_margin">
+          <span className=" col-sm-4 span_margin">
           { err.State && passTouch.State ? <p className="error">{err.State}</p>:null}
             <label htmlFor="state">State</label>
             <select name="state"  
@@ -67,7 +67,7 @@ const Address = (props ) => {
               ))}
             </select>
           </span>
-          <span className="span_margin">
+          <span className=" col-sm-4 span_margin">
           { err.City && passTouch.City ? <p className="error">{err.City}</p>:null}
             <label htmlFor="city">City</label>
             <select name="city"  onChange={passChange} id="city">
@@ -83,12 +83,12 @@ const Address = (props ) => {
           </span>
         </div>
         <div className="style_div">
-          <span className="span_margin">
-          { err.Country && passTouch.address ? <p className="error">{err.address}</p>:null}
+          <span className=" col-sm-4 span_margin">
+          { err.Country && passTouch.country ? <p className="error">{err.country}</p>:null}
             <label htmlFor="country">Country</label>
             <select name="country"  id="country" onChange={getCountryCode} >
-            
-              <option value="india" selected>
+             
+              <option value="india" >
                 India
               </option>
               {Country.getAllCountries(data).map((elm) => {
@@ -102,7 +102,7 @@ const Address = (props ) => {
               })}
             </select>
           </span>
-          <span className="span_margin">
+          <span className=" col-sm-4 span_margin">
           { err.pincode && passTouch.pincode ? <p className="error">{err.pincode}</p>:null}
             <label htmlFor="pincode">Pincode</label>
             <input

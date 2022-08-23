@@ -28,7 +28,6 @@
     margin: 10px;
 }
 .main_container{
-    height: 100%;
     width: 100%;
     background: rgb(210, 207, 207);
     display: flex;
@@ -73,5 +72,5 @@
 .error{
     color: red;
     font-size: .8rem;
-    
+
 }

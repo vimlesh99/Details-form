@@ -6,7 +6,7 @@ import "../form.css";
 const OtherDetails = ({pass,passChange,passValue,err ,passTouch}) => {
   return (
     <div className="person_details">
-    <h3 style={{ textDecoration: "underline" }}>Other details</h3>
+    <h5 style={{ textDecoration: "underline" }}>Other details</h5>
       <div className="style_div">
        <span className="span_margin">
        { err.occupation && passTouch.occupation ? <p className="error">{err.occupation}</p>:null}
