@@ -44,13 +44,14 @@ const Registration = () => {
  const {errors ,handleBlur,handleChange,touched,values,handleSubmit}= useFormik({
     initialValues:initialValues,
     validationSchema:signUpSchema,
-    onSubmit : (values)=>{
+    onSubmit : (values , action)=>{
       console.log(values);
       setTableValue((prev=>{
        
         return  [...prev ,values]
         console.log(tableValue);
       }))
+      action.resetForm();
     }
   })
    
